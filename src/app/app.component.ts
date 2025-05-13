@@ -38,6 +38,47 @@ export class AppComponent {
     }
   ];
   selectedTabName: string = '';
+  tableHeaders: any;
+  tableActions: any;
+  allApprovalsList: any[] = [
+    {
+      'po': 'test',
+      'cn': 'test',
+      'mn': 'test',
+      'ot': 'test',
+      'od': 'test',
+      'cs': 'test',
+      'sd': 'test',
+    },
+    {
+      'po': 'test',
+      'cn': 'test',
+      'mn': 'test',
+      'ot': 'test',
+      'od': 'test',
+      'cs': 'test',
+      'sd': 'test',
+    },
+    {
+      'po': 'test',
+      'cn': 'test',
+      'mn': 'test',
+      'ot': 'test',
+      'od': 'test',
+      'cs': 'test',
+      'sd': 'test',
+    },
+    {
+      'po': 'test',
+      'cn': 'test',
+      'mn': 'test',
+      'ot': 'test',
+      'od': 'test',
+      'cs': 'test',
+      'sd': 'test',
+    }
+  ];
+
 
   constructor(
     private modalService: NgbModal,
@@ -47,6 +88,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.callHeader();
+    this.tableHeader();
   }
 
   demo1() {
@@ -98,5 +140,39 @@ export class AppComponent {
 
   tabSelect(tabName: string) {
     this.selectedTabName = tabName;
+  }
+
+  tableHeader() {
+    const TABLEHEADERS = [
+      { display: 'PO#', attribute: 'po', isTooltipRequired: true },
+      { display: 'Customer Name', attribute: 'cn', isTooltipRequired: true },
+      { display: 'Mobile Number', attribute: 'mn', isTooltipRequired: true },
+      { display: 'order Type', attribute: 'ot', isTooltipRequired: true },
+      { display: 'Ordered Date', attribute: 'od', isTooltipRequired: true },
+      { display: 'Current Status', attribute: 'cs', isTooltipRequired: true },
+      { display: 'Status Date', attribute: 'sd', isTooltipRequired: true },
+    ];
+    this.tableHeaders = TABLEHEADERS;
+    this.tableActions = [
+      {
+        type: 'label',
+        label: 'EDIT',
+        property: '',
+        displayName: ''
+      },
+      {
+        type: 'label',
+        label: 'DELETE',
+        property: '',
+        displayName: ''
+      }
+    ];
+  }
+
+  rowClicked(event: any) {
+    const _rowLabel = event.rowLabel;
+    console.log(event);
+    if (_rowLabel.label === 'EDIT') { }
+    else if (_rowLabel.label === 'DELETE') { }
   }
 }
