@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Associateportal</title>
@@ -7,7 +8,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
   <app-root></app-root>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    const url = window.location.href;
+    let newScript = document.createElement("script");
+    if (url.includes('localhost')) {
+      newScript.src = "https://test-cdn.clopay.com/clopay-header/assets/clopayHeaderScript.js";
+      document.body.appendChild(newScript);
+    } else if (window.location.href.includes('dev-')) {
+      newScript.src = "https://dev-cdn.clopay.com/clopay-header/assets/clopayHeaderScript.js";
+      document.body.appendChild(newScript);
+    } else if (window.location.href.includes('test-')) {
+      newScript.src = "https://test-cdn.clopay.com/clopay-header/assets/clopayHeaderScript.js";
+      document.body.appendChild(newScript);
+    } else if (window.location.href.includes('staging-')) {
+      newScript.src = "https://staging-cdn.clopay.com/clopay-header/assets/clopayHeaderScript.js";
+      document.body.appendChild(newScript);
+    } else {
+      newScript.src = "https://cdn.clopay.com/clopay-header/assets/clopayHeaderScript-latest.js";
+      document.body.appendChild(newScript);
+    }
+  </script>
 </body>
+
 </html>

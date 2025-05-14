@@ -1,6 +1,7 @@
-<div id="clopayHeader"></div>
+<app-header></app-header>
+<app-secondarynav></app-secondarynav>
 
-<div class="secondaryNavWrapper">
+<!-- <div class="secondaryNavWrapper">
   <ul class="secondaryNavHeader" id="myTab" role="tablist">
     <li class="nav-item" *ngFor="let secondaryHeaderTitles of secondaryHeaderTitles"
       (click)="tabSelect(secondaryHeaderTitles.name)" [ngClass]="{
@@ -9,7 +10,7 @@
       <a id="{{ secondaryHeaderTitles.name }}" data-toggle="tab" role="tab">{{secondaryHeaderTitles.displayName}}</a>
     </li>
   </ul>
-</div>
+</div> -->
 
 <div class="main-content">
   <div class="card">
@@ -78,10 +79,6 @@
     </div>
   </div>
 </div>
-
-<!-- <clo-table class="approvalTable" tableId="basicTableExample" [isPaginationRequired]="true" [objects]="allApprovalsList"
-  [tableData]="allApprovalsList" (rowClicked)="rowClicked($event)" [tableHeaders]="tableHeaders"
-  [actions]="tableActions"></clo-table> -->
 
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Without ng-template
