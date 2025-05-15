@@ -33,9 +33,11 @@ export class AppComponent {
     }
   ];
   selectedTabName: string = '';
+  TableHeaders: any;
+  TableData: any;
 
   constructor(
-    private modalService: NgbModal,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {

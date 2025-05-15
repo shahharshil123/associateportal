@@ -1,0 +1,22 @@
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin font($style, $weight, $size, $font-name, $line-height, $color) {
+  font-style: $style;
+  font-weight: $weight;
+  font-size: $size;
+  font-family: $font-name;
+  line-height: $line-height;
+  color: $color;
+}

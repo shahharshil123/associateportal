@@ -27,7 +27,8 @@ export class EnvService {
             termsandConditions: 'https://dpadmin.clopay.com/cca/terms-and-conditions',
             privacyPolicy: 'https://dpadmin.clopay.com/cca/privacy-policy',
             AuthUrl: `https://${this.getEnvType()}-apigateway.clopay.com/api/security/v4/ValidateUser?aId=${this.getAppId()}&appIds=installer`,
-            associatePortalGateWayUrl: `https://${this.getEnvType()}-apigateway.clopay.com/api/firemarshalapi/FireMarshall/`
+            associatePortalGateWayUrl: ''
+            // associatePortalGateWayUrl: `https://${this.getEnvType()}-apigateway.clopay.com/api/firemarshalapi/FireMarshall/`
         }
         return appUrls;
     }
@@ -53,11 +54,11 @@ export class EnvService {
         const hostname = window && window.location && window.location.hostname;
         let appId: number = 0;
         if ("localhost".includes(hostname)) {
-            appId = 53
+            appId = 0
         } else if ("https://dev-associateportal.clopay.com/".includes(hostname)) {
-            appId = 53
+            appId = 0
         } else if ("https://test-associateportal.clopay.com/".includes(hostname)) {
-            appId = 53
+            appId = 0
         } else if ("https://dev-associateportal.clopay.com/".includes(hostname)) {
 
         } else if ("https://dev-associateportal.clopay.com/".includes(hostname)) {

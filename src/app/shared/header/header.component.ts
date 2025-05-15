@@ -30,11 +30,4 @@ export class HeaderComponent implements OnInit {
             }
         };
     }
-
-    @HostListener('window:logout-event', ['$event'])
-    logOutEvent() {
-        window.close();
-        sessionStorage.removeItem('user');
-        localStorage.removeItem('user');
-    }
 }

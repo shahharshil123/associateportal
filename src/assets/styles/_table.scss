@@ -1,0 +1,120 @@
+@import "./mixins";
+@import "./variable";
+
+.table> :not(:first-child) {
+    border-top: 0px solid currentColor !important;
+}
+
+.table> :not(caption)>*>* {
+    border-bottom-width: 0px !important;
+}
+
+table.cardsContainer.sortable thead tr.cardRow th:after {
+    background-size: 15px;
+}
+
+table.cardsContainer.sortable thead tr.cardRow th:hover:after {
+    padding: 12px !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
+
+table.cardsContainer tr.cardRow:hover {
+    box-shadow: none !important;
+    z-index: auto !important;
+}
+
+table.cardsContainer tbody tr:nth-child(odd):not(.hidden) {
+    background: #F2F2F2 !important;
+}
+
+table.cardsContainer .cardRow {
+    border: solid 0px #dadce0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+table.cardsContainer td span label span {
+    @include font(normal, 700 !important, 14px, '' !important, 17px, $maroon-color);
+}
+
+table {
+    box-shadow: 0 0 1px #0000001a, 0 2px 8px #0000001a !important;
+    border-radius: 4px !important;
+    border: 1px solid #ffffff !important;
+
+    .arrowDown {
+        transform: rotate(-90deg);
+        width: 15px;
+        height: 15px;
+    }
+
+    .arrowUp {
+        width: 15px;
+        height: 15px;
+        transform: rotate(90deg);
+    }
+
+    thead th {
+        height: 44px;
+    }
+
+    tbody tr {
+        height: 60px !important;
+        cursor: pointer;
+    }
+
+    thead,
+    tbody tr {
+        display: table !important;
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+
+    tbody {
+        height: calc(100vh - 305px) !important;
+        max-height: calc(100vh - 305px) !important;
+        overflow: auto !important;
+        display: block !important;
+        overflow-x: hidden !important;
+    }
+
+    th,
+    .checkbox label span {
+        @include font(normal, 700 !important, 12px !important, '' !important, 15px !important, $light-grey-color !important);
+        padding: 0.5rem 0.5rem !important;
+        text-transform: uppercase !important;
+        vertical-align: middle;
+    }
+
+    th .checkbox label {
+        margin: 0 !important;
+    }
+
+    tbody tr clo-input-choice .checkbox input[type=checkbox]+span:before {
+        top: 10px !important;
+    }
+
+    td {
+        padding: 0.5rem 0.5rem !important;
+
+        span label {
+            margin-right: 16px;
+        }
+
+        &.editbtn {
+            @include font(normal, 700, 14px, '', 17px, $maroon-color !important);
+            text-transform: uppercase;
+        }
+
+        vertical-align: middle;
+        word-break: break-all;
+        @include font(normal, 400 !important, 16px, '' !important, 20px, $dark-grey-color !important);
+        text-transform: capitalize;
+    }
+
+    td .checkbox label span {
+        @include font(normal, 400 !important, 16px !important, '' !important, 20px, $dark-grey-color !important);
+        text-transform: capitalize !important;
+    }
+}

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-secondarynav></app-secondarynav>
+<router-outlet></router-outlet>
 
 <!-- <div class="secondaryNavWrapper">
   <ul class="secondaryNavHeader" id="myTab" role="tablist">
@@ -11,74 +11,6 @@
     </li>
   </ul>
 </div> -->
-
-<div class="main-content">
-  <div class="card">
-    <div class="card-body py-4">
-      <div class="d-flex flex-wrap align-items-center gap-3">
-        <div class="radio">
-          <label>
-            <input type="radio" name="user" checked />
-            <span>US User</span>
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="user" />
-            <span>PSC Canada</span>
-          </label>
-        </div>
-        <div class="searchfield">
-          <input type="text" placeholder="Enter Store Number" class="p-2 rounded-2 border-1" />
-        </div>
-        <div class="right-arrow-icon">
-          <img src="./assets/images/back-button.svg" alt="Back Icon" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 gap-3">
-    <span>List of all Orders (10)</span>
-    <div class="d-flex flex-wrap align-items-center gap-3">
-      <div class="formField position-relative"><input placeholder="Search" title="Search" type="text"
-          class="searchField"></div>
-      <clo-button type="primary" label="FILTER"></clo-button>
-      <clo-button type="secondary" label="EXPORT"></clo-button>
-    </div>
-  </div>
-
-  <div class="tracking mt-5">
-    <div class="step completed">
-      <h4>Order Received</h4>
-      <p>Completed on <strong>10/16/2024</strong></p>
-      <p>Posted: 10/16/2024, 1:29 PM CST</p>
-    </div>
-    <div class="step completed">
-      <h4>Site Check</h4>
-      <p>Completed on <strong>10/29/2024</strong></p>
-      <p>Posted: 10/21/2024, 1:29 PM CST</p>
-      <p>Schedule on <strong>10/29/2024</strong> 06:00 AM</p>
-    </div>
-    <div class="step completed">
-      <h4>Order Changes</h4>
-      <p>Completed on <strong>10/23/2024</strong></p>
-      <p>Posted: 10/23/2024, 1:29 PM CST</p>
-      <p>Schedule on <strong>10/28/2024</strong> 06:00 AM</p>
-    </div>
-    <div class="step pending">
-      <h4>Product Manufacturing</h4>
-      <p>Completed on <strong>11/14/2024</strong></p>
-      <p>Posted: 10/31/2024, 1:29 PM CST</p>
-      <p>Schedule on <strong>11/22/2024</strong> 06:00 AM</p>
-    </div>
-    <div class="step pending">
-      <h4>Install/Delivery</h4>
-      <p>Completed on <strong>12/23/2024</strong></p>
-      <p>Posted: 12/23/2024, 1:29 PM CST</p>
-      <p>Schedule on <strong>12/28/2024</strong> 06:00 AM</p>
-    </div>
-  </div>
-</div>
 
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Without ng-template
@@ -108,9 +40,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<button type="button" class="btn btn-primary" (click)="demo1()">
+<!-- <button type="button" class="btn btn-primary" (click)="demo1()">
     With ng-template
 </button>
 

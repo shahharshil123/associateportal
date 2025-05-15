@@ -1,0 +1,101 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variable';
+
+.main-content {
+    margin: 1rem;
+
+    .right-arrow-icon {
+        background-color: $maroon-color;
+        padding: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        img {
+            transform: rotate(180deg);
+            vertical-align: baseline;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(8deg) brightness(103%) contrast(103%);
+        }
+    }
+
+    h1 {
+        @include font(normal, 500, 1rem, 'LatoMedium', 1.5em, $dark-grey-color);
+    }
+
+    // .formField>input.searchField {
+    //     background: url('https://f1studioz.in/demo/clopay/design-system/search.svg') no-repeat;
+    //     background-position: 146px;
+    //     width: 180px;
+    //     padding-right: 38px;
+    //     transition: width .4s ease-in-out 0s;
+    // }
+
+    // .formField>input,
+    // .formField>textarea,
+    // .formField>select {
+    //     width: 400px;
+    //     max-width: 100%;
+    //     border-radius: 4px;
+    //     border: solid 1px #d8dce6;
+    //     background-color: #fff;
+    //     padding: 9px 16px;
+    //     margin: 0;
+    //     outline: 0;
+    //     font-size: 16px;
+    //     color: #212223;
+    //     text-align: left;
+    //     position: relative;
+    //     text-transform: initial;
+    // }
+}
+
+.filter-container {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    background-color: #5c2c1d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.filter-box {
+    position: absolute;
+    top: 3.75rem;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 20rem;
+    z-index: 1;
+
+    .filter-box-scroll{
+        height: 18.75rem;
+        overflow-y: auto;
+    }
+
+    #accordionFlushExample{
+        .accordion-button{
+            @include font(normal, 400, 1rem, 'LatoRegular', 1.5rem, $dark-grey-color);
+            padding: 0;
+            box-shadow: none;
+            background-color: transparent;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.apply-button {
+    width: 100%;
+    background-color: #5c2c1d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
