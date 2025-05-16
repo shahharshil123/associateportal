@@ -186,4 +186,8 @@ export class OrdersComponent {
   checkboxClicked(item: any, event: any) {
     console.log(item, event);
   }
+
+  close(){
+    this.filterModalShow = false;
+  }
 }

@@ -2,8 +2,6 @@
 @import '../../../assets/styles/variable';
 
 .main-content {
-    margin: 1rem;
-
     .right-arrow-icon {
         background-color: $maroon-color;
         padding: 0.5rem;
@@ -18,7 +16,7 @@
     }
 
     h1 {
-        @include font(normal, 500, 1rem, 'LatoMedium', 1.5em, $dark-grey-color);
+        @include font('', 700, 1rem, '', 1.5em, $dark-grey-color);
     }
 
     // .formField>input.searchField {
@@ -81,7 +79,7 @@
 
     #accordionFlushExample{
         .accordion-button{
-            @include font(normal, 400, 1rem, 'LatoRegular', 1.5rem, $dark-grey-color);
+            @include font('', 400, 1rem, '', 1.5rem, $dark-grey-color);
             padding: 0;
             box-shadow: none;
             background-color: transparent;

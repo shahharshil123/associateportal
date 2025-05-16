@@ -1,3 +1,147 @@
-<secondarynav-latest [backButtonLabelName]="'Order Details'" [labelMore]="'Home Depot PO #48436692'" (backButtonClick)="backButtonClick()" [isBackButtonRequired]="true" />
+<secondarynav-latest [backButtonLabelName]="'Order Details'" [labelMore]="'Home Depot PO #48436692'"
+    (backButtonClick)="backButtonClick()" [isBackButtonRequired]="true" />
 
-<p>order-details works!</p>
+<div class="main-content">
+    <div class="card">
+        <div class="card-body d-flex justify-content-between">
+            <div>
+                <div class="d-flex align-items-center">
+                    <p class="usertitle">Customer Name</p>
+                    <p class="username">LOHMAN SUSAN</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="usertitle">ADDRESS</p>
+                    <p class="username">216 RED HAWK RD, HAMPSHIRE, IL, 60140</p>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex align-items-center">
+                    <p class="usertitle">ORDERED ON</p>
+                    <p class="username">10/23/2024 1:29 PM</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="usertitle">ADDRESS</p>
+                    <p class="username">SVS FAX ORDER</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>All Documents</h2>
+
+    <div class="files-download">
+        <div class="single-file-download">
+            <img src="back-button.svg" alt="" />
+            <span>Order</span>
+        </div>
+        <div class="single-file-download">
+            <img src="back-button.svg" alt="" />
+            <span>Service</span>
+        </div>
+        <div class="single-file-download">
+            <img src="back-button.svg" alt="" />
+            <span>Name of the Doc</span>
+        </div>
+        <div class="single-file-download">
+            <img src="back-button.svg" alt="" />
+            <span>Name of the Doc</span>
+        </div>
+        <div class="single-file-download">
+            <img src="back-button.svg" alt="" />
+            <span>Name of the Doc</span>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <p>Order Tracking</p>
+            <div class="tracking">
+                <div class="step completed">
+                    <h4>Order Received</h4>
+                    <p>Completed on 10/16/2024</p>
+                    <p>Posted: 10/16/2024, 1:29 PM CST</p>
+                </div>
+                <div class="step completed">
+                    <h4>Site Check</h4>
+                    <p>Completed on 10/29/2024</p>
+                    <p>Posted: 10/21/2024, 1:29 PM CST</p>
+                    <p><strong>Schedule on 10/29/2024 06:00 AM</strong></p>
+                </div>
+                <div class="step completed">
+                    <h4>Order Changes</h4>
+                    <p>Completed on 10/23/2024</p>
+                    <p>Posted: 10/23/2024, 1:29 PM CST</p>
+                    <p><strong>Schedule on 10/28/2024 06:00 AM</strong></p>
+                </div>
+                <div class="step pending">
+                    <h4>Product Manufacturing</h4>
+                    <p>Completed on 11/14/2024</p>
+                    <p>Posted: 10/31/2024, 1:29 PM CST</p>
+                    <p><strong>Schedule on 11/22/2024 06:00 AM</strong></p>
+                </div>
+                <div class="step pending">
+                    <h4>Install/Delivery</h4>
+                    <p>Completed on 12/23/2024</p>
+                    <p>Posted: 12/23/2024, 1:29 PM CST</p>
+                    <p><strong>Schedule on 12/28/2024 06:00 AM</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Comments To</h3>
+                    <image-radio-group name="choiceGroup" [options]="checkboxInputs"
+                        (selectionChange)="onRoleChange($event)" />
+                    <textarea rows="4" cols="5" class="form-control mt-3" resize
+                        placeholder="What's this note about?"></textarea>
+                    <span class="maxlimit">Max. Limit 200 Words</span>
+                    <div class="post-comments text-end">
+                        <p>Post Comment</p>
+                    </div>
+                    <div class="note-section">
+                        <p class="mb-0"><span>Need help? Call <a
+                                    href="tel:1-877-526-2050">1-877-526-2050.</a></span>Notes are for reference only
+                            and won't get a response.</p>
+                        <p class="mb-0">For assistance, contact the Clopay Call Center via phone or email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Old Comments</h3>
+                    <ul class="comments-tabs">
+                        <li [ngClass]="{'active' : selectedTab == tab.value}" *ngFor="let tab of commentTabs"
+                            (click)="tabSelect(tab.value)">{{tab.label}}</li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="single-tab-content">
+                            <p class="single-tab-content-title">Site Check Scheduled</p>
+                            <p class="single-tab-content-value">Added by Lanneette B on 10/25/24</p>
+                        </div>
+                        <div class="single-tab-content">
+                            <p class="single-tab-content-title">Site Check Scheduled</p>
+                            <p class="single-tab-content-value">Added by Lanneette B on 10/25/24</p>
+                        </div>
+                        <div class="single-tab-content">
+                            <p class="single-tab-content-title">Site Check Scheduled</p>
+                            <p class="single-tab-content-value">Added by Lanneette B on 10/25/24</p>
+                        </div>
+                        <div class="single-tab-content">
+                            <p class="single-tab-content-title">Site Check Scheduled</p>
+                            <p class="single-tab-content-value">Added by Lanneette B on 10/25/24</p>
+                        </div>
+                        <div class="single-tab-content">
+                            <p class="single-tab-content-title">Site Check Scheduled</p>
+                            <p class="single-tab-content-value">Added by Lanneette B on 10/25/24</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

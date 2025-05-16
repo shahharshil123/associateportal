@@ -1,0 +1,174 @@
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/variable";
+
+.usertitle {
+    @include font('', 700, 1rem, '', 1.5rem, $dark-grey-color);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    width: 50%;
+}
+
+.username {
+    width: 50%;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    @include font('', 400, 1rem, '', 1.5rem, $placeholder-text-color);
+}
+
+h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    @include font('', 700, 1rem, '', 1.5em, $placeholder-text-color);
+}
+
+.tracking {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 0 0 0;
+    position: relative;
+
+    p {
+        @include font('', 400, 1rem, '', 1.5rem, $placeholder-text-color);
+    }
+
+    .step {
+        text-align: left;
+        position: relative;
+        flex: 1;
+        padding-right: 20px;
+
+        &:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            z-index: 2;
+        }
+
+        &.completed:before {
+            background-color: #0aa848;
+            border-color: #0aa848;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 400;
+            color: $placeholder-text-color;
+        }
+
+        p {
+            margin: 4px 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: $light-grey-color;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 0;
+        right: 0;
+        // height: 2px;
+        border-bottom: 2px dotted #ccc;
+        // background-color: #ccc;
+        z-index: 1;
+    }
+
+    .step.completed:not(:last-child)::after {
+        // background-color: #0aa848;
+        border-bottom: 2px dotted #0aa848;
+    }
+}
+
+.files-download {
+    margin: 1.2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .single-file-download {
+        display: flex;
+        align-items: end;
+        gap: 8px;
+        cursor: pointer;
+
+        span {
+            @include font('', 400, 1rem, '', 1.5rem, $dark-grey-color);
+            text-decoration: underline;
+        }
+    }
+}
+
+h3 {
+    margin-bottom: 1.3rem;
+    @include font('', 700, 1rem, '', 1rem, $placeholder-text-color);
+}
+
+span.maxlimit {
+    @include font('', 400, 14px, '', 1rem, $light-grey-color);
+}
+
+.post-comments p {
+    @include font('', 700, 16px, '', 1rem, $maroon-color);
+    text-transform: uppercase;
+}
+
+.note-section {
+
+    span,
+    a {
+        @include font('', 700, 14px, '', 1rem, $light-grey-color);
+    }
+
+    @include font('', 400, 14px, '', 1rem, $light-grey-color);
+}
+
+.comments-tabs {
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    li {
+        @include font('', 400, 1rem, '', 1rem, $placeholder-text-color);
+        text-align: center;
+        cursor: pointer;
+        padding: 12px;
+
+        &.active {
+            font-weight: 700;
+            color: $maroon-color;
+            border-bottom: 2px solid $maroon-color;
+        }
+    }
+}
+
+.tabs-content {
+    height: 10.6rem;
+    overflow-y: auto;
+    margin-top: 2rem;
+
+    .single-tab-content{
+        margin-bottom: 1rem;
+        .single-tab-content-title{
+            margin-bottom: 8px;
+            @include font('', 400, 1rem, '', 1rem, $grey-40-color);
+        }
+        .single-tab-content-value{
+            margin-bottom: 8px;
+            @include font('', 400, 1rem, '', 1rem, $light-grey-color);
+        }
+    }
+}
