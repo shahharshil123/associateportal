@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Route, Router } from '@angular/router';
 
@@ -15,6 +15,9 @@ export class OrdersComponent {
   checkboxInputs: any;
   checkBoxOrderData: any;
   checkBoxStatusData: any;
+
+  @ViewChild('filterBox') filterBox!: ElementRef;
+  @ViewChild('filterButton') filterButton!: ElementRef;
 
   constructor(
     private modalService: NgbModal,
@@ -189,5 +192,15 @@ export class OrdersComponent {
 
   close(){
     this.filterModalShow = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedInsideFilterBox = this.filterBox?.nativeElement.contains(event.target);
+    const clickedFilterButton = this.filterButton?.nativeElement.contains(event.target);
+
+    if (!clickedInsideFilterBox && !clickedFilterButton) {
+      this.filterModalShow = false;
+    }
   }
 }

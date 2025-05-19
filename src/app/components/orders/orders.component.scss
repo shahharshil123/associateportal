@@ -81,6 +81,7 @@
         .accordion-button{
             @include font('', 400, 1rem, '', 1.5rem, $dark-grey-color);
             padding: 0;
+            margin-bottom: 1rem;
             box-shadow: none;
             background-color: transparent;
             text-transform: capitalize;

@@ -23,19 +23,19 @@
         <div class="d-flex flex-wrap align-items-center gap-3">
             <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" />
             <div class="filter-container">
-                <button class="filter-button" (click)="filterModal()">FILTER</button>
-                <div class="filter-box" *ngIf="filterModalShow">
+                <button class="filter-button" (click)="filterModal()" #filterButton >FILTER</button>
+                <div class="filter-box" #filterBox *ngIf="filterModalShow">
                     <div class="filter-box-scroll">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item mb-3">
+                            <div class="accordion-item border-0 mb-3">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="true"
                                         aria-controls="flush-collapseOne">
                                         Order Date
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                <div id="flush-collapseOne" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <select class="form-select" aria-label="Default select example">
@@ -47,15 +47,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item mb-3">
+                            <div class="accordion-item border-0 mb-3">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="true"
                                         aria-controls="flush-collapseTwo">
                                         Order Type
                                     </button>
                                 </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <div *ngFor="let item of checkBoxOrderData;let index=index">
@@ -70,15 +70,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item mb-3">
+                            <div class="accordion-item border-0 mb-3">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="true"
                                         aria-controls="flush-collapseThree">
                                         Status
                                     </button>
                                 </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                <div id="flush-collapseThree" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <div *ngFor="let item of checkBoxStatusData;let index=index">
