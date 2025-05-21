@@ -9,7 +9,7 @@
                 <div class="searchfield">
                     <div class="form-group">
                         <clo-input-text type="text" placeholder="Enter Store Number" value=""
-                            class="form-control border-0 p-0" autocomplete="off"/>
+                            class="form-control border-0 p-0" autocomplete="off" />
                     </div>
                 </div>
                 <div class="right-arrow-icon" (click)="search()">
@@ -21,9 +21,9 @@
     <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 gap-3 pb-3">
         <h1 class="tableHeading">List of all Orders (10)</h1>
         <div class="d-flex flex-wrap align-items-center gap-3">
-            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" autocomplete="off"/>
+            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" autocomplete="off" />
             <div class="filter-container">
-                <button class="filter-button" (click)="filterModal()" #filterButton >FILTER</button>
+                <button class="filter-button" (click)="filterModal()" #filterButton>FILTER</button>
                 <div class="filter-box" #filterBox *ngIf="filterModalShow">
                     <div class="filter-box-scroll">
                         <div class="accordion accordion-flush me-2" id="accordionFlushExample">
@@ -38,11 +38,14 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>This Week</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <select class="form-select" aria-label="Order Date"
+                                            [(ngModel)]="filterselectedDate" (change)="orderDateSelect($event)">
+                                            <option value="thisweek">This Week</option>
+                                            <option value="thismonth">This Month</option>
+                                            <option value="thisyear">This Year</option>
+                                            <option value="lastweek">Last Week</option>
+                                            <option value="lastmonth">Last Month</option>
+                                            <option value="lastyear">Last Year</option>
                                         </select>
                                     </div>
                                 </div>
@@ -59,8 +62,8 @@
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <div *ngFor="let item of checkBoxOrderData;let index=index">
-                                            <clo-input-choice (change)="checkboxClicked(item,$event.target.checked)"
-                                                [name]="item.name" type="checkbox">
+                                            <clo-input-choice (change)="checkboxClicked(item)" [name]="item.name"
+                                                type="checkbox">
                                                 <clo-checkbox-option id="clo-${{index}}-${{item.name}}"
                                                     [isChecked]="item.isChecked" [value]="index"
                                                     [label]="item.displayName">
@@ -82,8 +85,8 @@
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body p-0">
                                         <div *ngFor="let item of checkBoxStatusData;let index=index">
-                                            <clo-input-choice (change)="checkboxClicked(item,$event.target.checked)"
-                                                [name]="item.name" type="checkbox">
+                                            <clo-input-choice (change)="checkboxClicked(item)" [name]="item.name"
+                                                type="checkbox">
                                                 <clo-checkbox-option id="clo-${{index}}-${{item.name}}"
                                                     [isChecked]="item.isChecked" [value]="index"
                                                     [label]="item.displayName">
@@ -95,7 +98,9 @@
                             </div>
                         </div>
                     </div>
-                    <button class="apply-button" (click)="close()">APPLY FILTER</button>
+                    <div class="apply-button">
+                        <clo-button type="primary" label="APPLY FILTER" (click)="applyfilter()"/>
+                    </div>
                 </div>
             </div>
 

@@ -12,6 +12,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ManageuserComponent } from './components/manageuser/manageuser.component';
 import { ManagesupervisorComponent } from './components/managesupervisor/managesupervisor.component';
 import { ManagepscemailComponent } from './components/managepscemail/managepscemail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ManagepscemailComponent } from './components/managepscemail/managepscem
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    FormsModule
 ],
   providers: [
     provideClientHydration(withEventReplay()),

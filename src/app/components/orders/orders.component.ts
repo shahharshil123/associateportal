@@ -16,6 +16,8 @@ export class OrdersComponent {
   checkboxInputs: any;
   checkBoxOrderData: any;
   checkBoxStatusData: any;
+  filterselectedDate: string = 'thisweek';
+  filterorderType: any[] = [];
 
   @ViewChild('filterBox') filterBox!: ElementRef;
   @ViewChild('filterButton') filterButton!: ElementRef;
@@ -39,6 +41,7 @@ export class OrdersComponent {
     ]
     this.checkboxOrderData();
     this.checkboxStatusData();
+    console.log(this.filterselectedDate);
   }
 
   export() {
@@ -216,15 +219,21 @@ export class OrdersComponent {
       )
     );
     console.log('Search Clicked', this.TableData, searchText);
-
   }
 
   onRoleChange(event: any) {
     console.log(event);
   }
 
-  checkboxClicked(item: any, event: any) {
-    console.log(item, event);
+  checkboxClicked(item: any) {
+    console.log(item);
+    this.filterorderType.push(item);
+  }
+
+  orderDateSelect(event: any): void {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.filterselectedDate = selectedValue;
+    console.log('Selected:', this.filterselectedDate);
   }
 
   close() {
@@ -238,6 +247,12 @@ export class OrdersComponent {
 
     if (!clickedInsideFilterBox && !clickedFilterButton) {
       this.filterModalShow = false;
+    }
+  }
+
+  applyfilter() {
+    if (this.filterselectedDate || this.filterorderType) {
+      console.log('Filter btn clicked inside',this.filterselectedDate, this.filterorderType);
     }
   }
 }
