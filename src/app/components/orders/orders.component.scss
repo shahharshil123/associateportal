@@ -64,13 +64,14 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    padding: 1rem 0.8rem;
     width: 20rem;
     z-index: 1;
 
     .filter-box-scroll{
         height: 18.75rem;
         overflow-y: auto;
+        margin-bottom: 0.5rem;
     }
 
     #accordionFlushExample{
