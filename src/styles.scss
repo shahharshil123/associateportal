@@ -87,4 +87,15 @@ ul {
 
 .main-content {
     padding: 1rem 1rem 3rem 1rem;
+
+    .tableHeading {
+        @include font('', 700, 1rem, '', 1.5em, $dark-grey-color);
+    }
+}
+
+.btn-close{
+    &:focus{
+        box-shadow: none !important;
+        outline: none !important;
+    }
 }

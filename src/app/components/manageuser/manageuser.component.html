@@ -1,3 +1,100 @@
 <app-secondarynav></app-secondarynav>
 
-<p>manageuser works!</p>
+<div class="main-content">
+    <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 gap-3 pb-3">
+        <h1 class="tableHeading">List of all User (5)</h1>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" autocomplete="off" />
+            <clo-button type="primary" label="Add New User" data-bs-toggle="modal" data-bs-target="#manageuser" />
+            <clo-button type="secondary" label="EXPORT" (click)="export()" />
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let header of TableHeaders;">{{header.display}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr (click)="clicked(data)" *ngFor="let data of TableData;">
+                <td>{{data.po}}</td>
+                <td>{{data.cn}}</td>
+                <td>{{data.mn}}</td>
+                <td data-bs-toggle="modal" data-bs-target="#manageuser">{{data.ot}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="manageuser" tabindex="-1" aria-labelledby="manageuser" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="manageuser">Manage User</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <clo-input-text type="text" value="" class="form-control border-0 p-0"
+                        autocomplete="off">UserName/ID <span class="text-danger">*</span>:</clo-input-text>
+                </div>
+                <div class="form-group">
+                    <clo-input-text type="text" value="" class="form-control border-0 p-0"
+                        autocomplete="off">Password<span class="text-danger">*</span>:</clo-input-text>
+                </div>
+                <div class="form-group mb-3">
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'cp'"
+                        type="checkbox">
+                        <clo-checkbox-option id="cp" [isChecked]="false"
+                            value="'cp'" label="Must Change Password:">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                </div>
+                <div class="form-group mb-3">
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'active'"
+                        type="checkbox">
+                        <clo-checkbox-option id="active" [isChecked]="false"
+                            value="'active'" label="Active">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                </div>
+                <div class="form-group">
+                    <clo-input-text type="text" value="" class="form-control border-0 p-0"
+                        autocomplete="off">Email:</clo-input-text>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="forl-label">Select Roles <span class="text-danger">*</span>:</label>
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'admin'"
+                        type="checkbox">
+                        <clo-checkbox-option id="admin" [isChecked]="false"
+                            value="'admin'" label="Admin">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'psccanadauser'"
+                        type="checkbox">
+                        <clo-checkbox-option id="psccanadauser" [isChecked]="false"
+                            value="'psccanadauser'" label="PSC Canada User">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'ususer'"
+                        type="checkbox">
+                        <clo-checkbox-option id="ususer" [isChecked]="false"
+                            value="'ususer'" label="US User">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'store'"
+                        type="checkbox">
+                        <clo-checkbox-option id="store" [isChecked]="false"
+                            value="'store'" label="Store">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <clo-button type="secondary" label="Cancel" data-bs-dismiss="modal" />
+                <clo-button type="primary" label="Save" (click)="save()" />
+            </div>
+        </div>
+    </div>
+</div>

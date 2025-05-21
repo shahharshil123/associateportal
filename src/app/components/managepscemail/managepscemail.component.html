@@ -1,3 +1,62 @@
 <app-secondarynav></app-secondarynav>
 
-<p>managepscemail works!</p>
+<div class="main-content">
+    <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 gap-3 pb-3">
+        <h1 class="tableHeading">List of all PSC Emails (5)</h1>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" autocomplete="off" />
+            <clo-button type="primary" label="Add New PSC Email" data-bs-toggle="modal"
+                data-bs-target="#managepscemail" />
+            <clo-button type="secondary" label="EXPORT" (click)="export()" />
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let header of TableHeaders;">{{header.display}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr (click)="clicked(data)" *ngFor="let data of TableData;">
+                <td>{{data.po}}</td>
+                <td>{{data.cn}}</td>
+                <td>{{data.mn}}</td>
+                <td data-bs-toggle="modal" data-bs-target="#managepscemail">{{data.ot}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="managepscemail" tabindex="-1" aria-labelledby="managepscemail" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="managepscemail">Manage Supervisors</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <clo-input-text type="text" value="" class="form-control border-0 p-0" autocomplete="off">UserName
+                        <span class="text-danger">*</span>:</clo-input-text>
+                </div>
+                <div class="form-group">
+                    <clo-input-text type="text" value="" class="form-control border-0 p-0"
+                        autocomplete="off">Email:</clo-input-text>
+                </div>
+                <div class="form-group mb-3">
+                    <clo-input-choice (change)="checkboxClicked($event)" [name]="'isactive'"
+                        type="checkbox">
+                        <clo-checkbox-option id="isactive" [isChecked]="false"
+                            value="'isactive'" label="IsActive:">
+                        </clo-checkbox-option>
+                    </clo-input-choice>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <clo-button type="secondary" label="Cancel" data-bs-dismiss="modal" />
+                <clo-button type="primary" label="Save" (click)="save()" />
+            </div>
+        </div>
+    </div>
+</div>

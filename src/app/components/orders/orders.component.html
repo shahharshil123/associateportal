@@ -9,7 +9,7 @@
                 <div class="searchfield">
                     <div class="form-group">
                         <clo-input-text type="text" placeholder="Enter Store Number" value=""
-                            class="form-control border-0 p-0" />
+                            class="form-control border-0 p-0" autocomplete="off"/>
                     </div>
                 </div>
                 <div class="right-arrow-icon" (click)="search()">
@@ -19,9 +19,9 @@
         </div>
     </div>
     <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 gap-3 pb-3">
-        <h1>List of all Orders (10)</h1>
+        <h1 class="tableHeading">List of all Orders (10)</h1>
         <div class="d-flex flex-wrap align-items-center gap-3">
-            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" />
+            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" autocomplete="off"/>
             <div class="filter-container">
                 <button class="filter-button" (click)="filterModal()" #filterButton >FILTER</button>
                 <div class="filter-box" #filterBox *ngIf="filterModalShow">
@@ -114,9 +114,9 @@
                 <td>{{data.cn}}</td>
                 <td>{{data.mn}}</td>
                 <td>{{data.ot}}</td>
-                <td>{{data.od}}</td>
+                <td>{{data.od | date: 'dd-MM-yyyy hh:mm a'}}</td>
                 <td>{{data.cs}}</td>
-                <td>{{data.sd}}</td>
+                <td>{{data.sd | date: 'dd-MM-yyyy hh:mm a'}}</td>
             </tr>
         </tbody>
     </table>

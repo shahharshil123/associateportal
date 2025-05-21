@@ -15,10 +15,6 @@
         }
     }
 
-    h1 {
-        @include font('', 700, 1rem, '', 1.5em, $dark-grey-color);
-    }
-
     // .formField>input.searchField {
     //     background: url('https://f1studioz.in/demo/clopay/design-system/search.svg') no-repeat;
     //     background-position: 146px;

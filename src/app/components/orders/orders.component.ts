@@ -9,8 +9,9 @@ import { Route, Router } from '@angular/router';
   styleUrl: './orders.component.scss'
 })
 export class OrdersComponent {
-  TableHeaders: any;
-  TableData: any;
+  TableHeaders: any[] = [];
+  TableData: any[] = []; // for displaying filtered data
+  OriginalTableData: any[] = []; //original data without filter
   filterModalShow: boolean = false;
   checkboxInputs: any;
   checkBoxOrderData: any;
@@ -42,6 +43,33 @@ export class OrdersComponent {
 
   export() {
     console.log('Export Clicked');
+    const data = this.TableData;
+    const now = new Date();
+    const yyyyMmDd = now.toISOString().split('T')[0]; // e.g., "2025-05-21"
+
+    if (!data || !data.length) {
+      return;
+    }
+
+    // Get CSV headers
+    const headers = Object.keys(data[0]).join(',').toUpperCase();
+
+    // Get CSV rows
+    const csvRows = data.map(row => {
+      return Object.values(row)
+        .map(val => `"${String(val).replace(/"/g, '""')}"`) // handle quotes
+        .join(',');
+    });
+
+    const csvContent = [headers, ...csvRows].join('\n');
+
+    // Create blob and trigger download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('download', `order-${yyyyMmDd}.csv`);
+    a.click();
   }
 
   filterModal() {
@@ -68,52 +96,53 @@ export class OrdersComponent {
 
     const TABLEDATA = [
       {
-        'po': '48436692',
-        'cn': 'Ava Jackson',
-        'mn': '+1 (555) 901-2345',
+        'po': '79447450',
+        'cn': 'GRIFFIN CHRIS',
+        'mn': '3212004202',
         'ot': 'Garage Door Install',
-        'od': '10/23/2024 1:29 PM',
-        'cs': 'SC Scheduled by Installer',
-        'sd': '10/23/2024 1:29 PM'
+        'od': '03/31/2025 04:09 PM',
+        'cs': 'Scheduled Arrival Date',
+        'sd': '04/30/2025 11:00 AM'
       },
       {
-        'po': '48436692',
-        'cn': 'Ava Jackson',
-        'mn': '+1 (555) 901-2345',
+        'po': '79447545',
+        'cn': 'SMITH JUSTIN',
+        'mn': '4077820413',
         'ot': 'Garage Door Install',
-        'od': '10/23/2024 1:29 PM',
-        'cs': 'SC Scheduled by Installer',
-        'sd': '10/23/2024 1:29 PM'
+        'od': '03/01/2025 01:09 PM',
+        'cs': 'Scheduled Arrival Date',
+        'sd': '04/21/2025 12:22 PM'
       },
       {
-        'po': '48436692',
-        'cn': 'Ava Jackson',
-        'mn': '+1 (555) 901-2345',
+        'po': '79447280',
+        'cn': 'SMITH JUSTIN',
+        'mn': '4077820413',
         'ot': 'Garage Door Install',
-        'od': '10/23/2024 1:29 PM',
-        'cs': 'SC Scheduled by Installer',
-        'sd': '10/23/2024 1:29 PM'
+        'od': '03/01/2025 01:09 PM',
+        'cs': 'Scheduled Arrival Date',
+        'sd': '04/21/2025 12:22 PM'
       },
       {
-        'po': '48436692',
-        'cn': 'Ava Jackson',
-        'mn': '+1 (555) 901-2345',
-        'ot': 'Garage Door Install',
-        'od': '10/23/2024 1:29 PM',
-        'cs': 'SC Scheduled by Installer',
-        'sd': '10/23/2024 1:29 PM'
+        'po': '49999633',
+        'cn': 'MONTON, RANDY',
+        'mn': '5623815785',
+        'ot': 'Do-It-Yourself Garage Door Delivery',
+        'od': '04/15/2025 05:02 AM',
+        'cs': 'Scheduled Arrival Date',
+        'sd': '05/01/2025 10:07 AM'
       },
       {
-        'po': '48436692',
-        'cn': 'Ava Jackson',
-        'mn': '+1 (555) 901-2345',
+        'po': '79444469',
+        'cn': 'CAPERS HERMAN',
+        'mn': '8038424435',
         'ot': 'Garage Door Install',
-        'od': '10/23/2024 1:29 PM',
-        'cs': 'SC Scheduled by Installer',
-        'sd': '10/23/2024 1:29 PM'
+        'od': '07/26/2023 11:42 AM',
+        'cs': 'At DC Ready for Pickup/Delivery',
+        'sd': '10/01/2023 11:10 AM'
       }
     ]
-    this.TableData = TABLEDATA;
+    this.OriginalTableData = TABLEDATA;
+    this.TableData = [...TABLEDATA];
   }
 
   checkboxOrderData() {
@@ -178,8 +207,16 @@ export class OrdersComponent {
     console.log('Search Clicked');
   }
 
-  selectedChange(event: any) {
-    console.log(event);
+  selectedChange(searchText: any) {
+    const lowerSearch = searchText.toLowerCase();
+
+    this.TableData = this.OriginalTableData.filter(item =>
+      Object.values(item).some((value: any) =>
+        value.toString().toLowerCase().includes(lowerSearch)
+      )
+    );
+    console.log('Search Clicked', this.TableData, searchText);
+
   }
 
   onRoleChange(event: any) {
@@ -190,7 +227,7 @@ export class OrdersComponent {
     console.log(item, event);
   }
 
-  close(){
+  close() {
     this.filterModalShow = false;
   }
 
