@@ -2,7 +2,7 @@
 @import "../../../assets/styles/variable";
 
 .usertitle {
-    @include font('', 700, 1rem, '', 1.5rem, $dark-grey-color);
+    @include font(700, 1rem, '', 1.5rem, $dark-grey-color);
     text-transform: uppercase;
     margin-bottom: 8px;
     width: 50%;
@@ -12,13 +12,13 @@
     width: 50%;
     text-transform: uppercase;
     margin-bottom: 8px;
-    @include font('', 400, 1rem, '', 1.5rem, $placeholder-text-color);
+    @include font(400, 1rem, '', 1.5rem, $placeholder-text-color);
 }
 
 h2 {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    @include font('', 700, 1rem, '', 1.5em, $placeholder-text-color);
+    @include font(700, 1rem, '', 1.5em, $placeholder-text-color);
 }
 
 .tracking {
@@ -29,7 +29,7 @@ h2 {
     position: relative;
 
     p {
-        @include font('', 400, 1rem, '', 1.5rem, $placeholder-text-color);
+        @include font(400, 1rem, '', 1.5rem, $placeholder-text-color);
     }
 
     .step {
@@ -106,7 +106,7 @@ h2 {
         cursor: pointer;
 
         span {
-            @include font('', 400, 1rem, '', 1.5rem, $dark-grey-color);
+            @include font(400, 1rem, '', 1.5rem, $dark-grey-color);
             text-decoration: underline;
         }
     }
@@ -114,15 +114,15 @@ h2 {
 
 h3 {
     margin-bottom: 1.3rem;
-    @include font('', 700, 1rem, '', 1rem, $placeholder-text-color);
+    @include font(700, 1rem, '', 1rem, $placeholder-text-color);
 }
 
 span.maxlimit {
-    @include font('', 400, 14px, '', 1rem, $light-grey-color);
+    @include font(400, 14px, '', 1rem, $light-grey-color);
 }
 
 .post-comments p {
-    @include font('', 700, 16px, '', 1rem, $maroon-color);
+    @include font(700, 16px, '', 1rem, $maroon-color);
     text-transform: uppercase;
 }
 
@@ -130,10 +130,10 @@ span.maxlimit {
 
     span,
     a {
-        @include font('', 700, 14px, '', 1rem, $light-grey-color);
+        @include font(700, 14px, '', 1rem, $light-grey-color);
     }
 
-    @include font('', 400, 14px, '', 1rem, $light-grey-color);
+    @include font(400, 14px, '', 1rem, $light-grey-color);
 }
 
 .comments-tabs {
@@ -142,7 +142,7 @@ span.maxlimit {
     display: flex;
 
     li {
-        @include font('', 400, 1rem, '', 1rem, $placeholder-text-color);
+        @include font(400, 1rem, '', 1rem, $placeholder-text-color);
         text-align: center;
         cursor: pointer;
         padding: 12px;
@@ -164,11 +164,11 @@ span.maxlimit {
         margin-bottom: 1rem;
         .single-tab-content-title{
             margin-bottom: 8px;
-            @include font('', 400, 1rem, '', 1rem, $grey-40-color);
+            @include font(400, 1rem, '', 1rem, $grey-40-color);
         }
         .single-tab-content-value{
             margin-bottom: 8px;
-            @include font('', 400, 1rem, '', 1rem, $light-grey-color);
+            @include font(400, 1rem, '', 1rem, $light-grey-color);
         }
     }
 }

@@ -35,7 +35,7 @@ table.cardsContainer .cardRow {
 }
 
 table.cardsContainer td span label span {
-    @include font('', 700 !important, 14px, '' !important, 17px, $maroon-color);
+    @include font(700 !important, 14px, '' !important, 17px, $maroon-color);
 }
 
 table {
@@ -81,7 +81,7 @@ table {
 
     th,
     .checkbox label span {
-        @include font('', 700 !important, 12px !important, '' !important, 15px !important, $light-grey-color !important);
+        @include font(700 !important, 12px !important, '' !important, 15px !important, $light-grey-color !important);
         padding: 0.5rem 0.5rem !important;
         text-transform: uppercase !important;
         vertical-align: middle;
@@ -103,18 +103,18 @@ table {
         }
 
         &.editbtn {
-            @include font('', 700, 14px, '', 17px, $maroon-color !important);
+            @include font(700, 14px, '', 17px, $maroon-color !important);
             text-transform: uppercase;
         }
 
         vertical-align: middle;
         word-break: break-all;
-        @include font('', 400 !important, 16px, '' !important, 20px, $dark-grey-color !important);
+        @include font(400 !important, 16px, '' !important, 20px, $dark-grey-color !important);
         text-transform: capitalize;
     }
 
     td .checkbox label span {
-        @include font('', 400 !important, 16px !important, '' !important, 20px, $dark-grey-color !important);
+        @include font(400 !important, 16px !important, '' !important, 20px, $dark-grey-color !important);
         text-transform: capitalize !important;
     }
 }

@@ -1,0 +1,46 @@
+<app-secondarynav></app-secondarynav>
+
+<div class="main-content">
+    <div class="card">
+        <div class="card-body py-4">
+
+        </div>
+    </div>
+    <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 gap-3 pb-3">
+        <h1 class="tableHeading">List of all Stores (10)</h1>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+            <clo-input-search-text class="searchfield" (selectedChange)="selectedChange($event)" autocomplete="off" />
+            <div class="dropdown-filter">
+                <select class="form-select" aria-label="Order Date" [(ngModel)]="filterselectedDate"
+                    (change)="orderDateSelect($event)">
+                    <option value="thisweek">All Orders</option>
+                    <option value="thisweek">Last 7 days</option>
+                    <option value="thismonth">Last 30 days</option>
+                    <option value="thisyear">This Quarter</option>
+                    <option value="lastweek">This year</option>
+                    <option value="lastmonth">Last Year</option>
+                </select>
+            </div>
+            <clo-button type="secondary" label="EXPORT" (click)="export()" />
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let header of TableHeaders;">{{header.display}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of TableData;">
+                <td>{{data.po}}</td>
+                <td>{{data.cn}}</td>
+                <td>{{data.mn}}</td>
+                <td>{{data.ot}}</td>
+                <td>{{data.od}}</td>
+                <td>{{data.cs}}</td>
+                <td>{{data.sd}}</td>
+                <td>{{data.icon}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
