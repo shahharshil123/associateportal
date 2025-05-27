@@ -1,10 +1,10 @@
 <div class="login-page">
     <div class="row m-0">
-        <div class="col-6 p-0">
+        <div class="col p-0 left-image">
             <div class="left-content-image"></div>
         </div>
-        <div class="col-6">
-            <div class="login-form">
+        <div class="col">
+            <div class="login-form d-flex flex-column  align-items-baseline justify-content-center position-relative">
                 <img src="https://test-iam.clopay.com/img/logo.svg" alt="" class="mw-100" />
                 <h1>CIS Portal</h1>
                 <h2>Welcome to Clopay CIS - Order Status</h2>
@@ -19,15 +19,21 @@
                         placeholder="******">Password
                         <span class="text-danger">*</span>
                     </clo-input-text>
-                    <img src="eye-icon.svg" alt="Eye Icon" class="eye-icon"/>
+                    <img src="eye-icon.svg" alt="Eye Icon" class="eye-icon handCursor" />
                     <p class="notes mb-4">For store associates: ZIP code or postal code</p>
                 </div>
                 <div class="apply-button w-100">
-                    <clo-button type="primary" label="Login"/>
+                    <clo-button type="primary" label="Login" />
                 </div>
-                <div>
-                    <p class="forgotpassword">Forgot Password?</p>
-                    <p class="needhelp">Need Help?</p>
+                <a href="#" class="forgotpassword handCursor">Forgot Password?</a>
+                <a href="#" class="needhelp w-100 text-center handCursor text-decoration-underline">Need Help?</a>
+                <div class="copyright mt-3 text-center">
+                    <p>
+                        <span class="pe-4">Disclaimer</span>
+                        <span>©</span> 2025 Clopay | <a href="http://test-dpadmin.clopay.com/cca/terms-and-conditions"
+                            target="_blank" sandbox="allow-modals allow-popups">Terms and Conditions </a> | <a
+                            target="_blank" href="http://test-dpadmin.clopay.com/cca/privacy-policy">Privacy Policy </a>
+                    </p>
                 </div>
             </div>
         </div>
