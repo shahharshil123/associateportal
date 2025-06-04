@@ -1,1 +1,42 @@
-<div id="clopayHeader"></div>
+<!-- <div id="clopayHeader"></div> -->
+<div class="global-header d-flex flex-wrap align-items-center justify-content-between w-100 position-fixed top-0 gap-3">
+    <div class="left-section d-flex flex-wrap align-items-center justify-content-between handCursor">
+        <img src="https://test-iam.clopay.com/img/logo.svg" alt="Clopay Logo" class="site-logo  me-3" />
+        <h1>CIS Portal</h1>
+    </div>
+    <div class="right-section d-flex flex-wrap align-items-center justify-content-between gap-4">
+        <a href="tel:1-877-526-2050" class="handCursor needhelp">Need help? Call 1-877-526-2050</a>
+        <p class="handCursor" data-bs-toggle="modal" data-bs-target="#contactusModal">Contact Us</p>
+        <div class="profile-section d-flex align-items-center handCursor">
+            <p class="me-2">testadmin</p>
+            <img src="arrow-down.svg" alt="Down Arrow Icon" />
+        </div>
+        <img src="" alt="HDDC" />
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

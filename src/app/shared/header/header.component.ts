@@ -7,27 +7,28 @@ declare const setClopayHeaderInfo: any;
     selector: 'app-header',
     standalone: false,
     templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
 
     public envService = inject(EnvService);
 
     ngOnInit(): void {
-        this.callHeader();
+        //    this.callHeader();
     }
 
-    callHeader() {
-        const xhr = new XMLHttpRequest();
-        const url = this.envService.getEnvType() === 'prod' ? `https://cdn.clopay.com/clopay-header/` :
-            `https://${this.envService.getEnvType()}-cdn.clopay.com/clopay-header/`
-        xhr.open('GET', url, true)
-        xhr.send();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const clopayHeader: any = document.getElementById('clopayHeader');
-                clopayHeader.innerHTML = xhr.responseText;
-                setClopayHeaderInfo();
-            }
-        };
-    }
+    // callHeader() {
+    //     const xhr = new XMLHttpRequest();
+    //     const url = this.envService.getEnvType() === 'prod' ? `https://cdn.clopay.com/clopay-header/` :
+    //         `https://${this.envService.getEnvType()}-cdn.clopay.com/clopay-header/`
+    //     xhr.open('GET', url, true)
+    //     xhr.send();
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4 && xhr.status === 200) {
+    //             const clopayHeader: any = document.getElementById('clopayHeader');
+    //             clopayHeader.innerHTML = xhr.responseText;
+    //             setClopayHeaderInfo();
+    //         }
+    //     };
+    // }
 }

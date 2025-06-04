@@ -1,2 +1,8 @@
 @import '../../../assets/styles/mixins';
 @import '../../../assets/styles/variable';
+
+::ng-deep .custom-navbar{
+    position: fixed;
+    top: 64px;
+    z-index: 2;
+}
